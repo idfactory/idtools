@@ -1,0 +1,32 @@
+[
+  {
+    "label": "Run Example - idlog",
+    "command": "go run ./examples/idlog/",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true
+  },
+  {
+    "label": "Run Tests",
+    "command": "go test -v ./...",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true
+  },
+  {
+    "label": "Run Test Coverage",
+    "command": "go test -cover ./...",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true
+  }
+]
