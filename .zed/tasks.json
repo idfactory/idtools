@@ -10,8 +10,28 @@
     "show_summary": true
   },
   {
+    "label": "Run Example - idtoken",
+    "command": "go run ./examples/idtoken/",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true
+  },
+  {
     "label": "Run Tests",
     "command": "go test -v ./...",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true
+  },
+  {
+    "label": "Run Vet",
+    "command": "go vet ./...",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always",

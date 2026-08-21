@@ -5,3 +5,4 @@ idTools is a set of lightweight tools without unnecessary dependencies, written 
 ## Tools
 
 - [idlog](./docs/idlog.md) — Structured JSON Logger for Go
+- [idtoken](./docs/idtoken.md) — Cryptographically secure UUID and token generators for Go
