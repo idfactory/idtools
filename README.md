@@ -59,18 +59,17 @@ example.
 
 ## Tests and checks
 
-Run the complete test suite from the repository root:
+Run the complete test suite with verbose output and package-level coverage from
+the repository root:
 
 ```sh
-go test ./...
+go test -v -cover ./...
 ```
 
-Useful additional checks are:
+Run static analysis separately:
 
 ```sh
-go test -v ./...      # verbose test output
-go test -cover ./...  # package-level test coverage
-go vet ./...          # static analysis
+go vet ./...
 ```
 
 Run all tests and `go vet ./...` before opening a pull request.
@@ -80,8 +79,8 @@ Run all tests and `go vet ./...` before opening a pull request.
 The repository includes optional project configuration for
 [Zed](https://zed.dev/) in [`.zed/`](./.zed/):
 
-- [`.zed/tasks.json`](./.zed/tasks.json) provides tasks for both examples,
-  tests, coverage, and `go vet`.
+- [`.zed/tasks.json`](./.zed/tasks.json) provides tasks for both examples, a
+  combined test-and-coverage run, and `go vet`.
 - [`.zed/debug.json`](./.zed/debug.json) provides Delve launch configurations
   for both examples.
 - [`.zed/settings.json`](./.zed/settings.json) contains project-local editor
@@ -89,10 +88,10 @@ The repository includes optional project configuration for
 
 Open the repository root in Zed. To run a task, open the command palette
 (`Cmd+Shift+P` on macOS or `Ctrl+Shift+P` on Linux), choose `task: spawn`, then
-select a task such as `Run Tests` or `Run Example - idtoken`. To debug an
-example, run `debugger: start` from the command palette and select one of the
-`Debug example - ...` launch configurations. Zed has built-in Go debugging
-support through Delve.
+select a task such as `Run Tests with Coverage` or `Run Example - idtoken`. To
+debug an example, run `debugger: start` from the command palette and select one
+of the `Debug example - ...` launch configurations. Zed has built-in Go
+debugging support through Delve.
 
 Zed is not required. With any other editor—or no editor-specific
 integration—run the commands in [Running the examples](#running-the-examples)
