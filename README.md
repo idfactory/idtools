@@ -1,8 +1,10 @@
 # idtools
 
 `idtools` is a small Go module with reusable, standard-library-only utilities.
-It currently contains two packages:
+It currently contains three packages:
 
+- [`idconfig`](./docs/idconfig.md) — typed application configuration loaded
+  from environment variables and struct tags.
 - [`idlog`](./docs/idlog.md) — a structured JSON logger with log levels and
   readable stack traces.
 - [`idtoken`](./docs/idtoken.md) — cryptographically secure UUID and token
@@ -23,16 +25,21 @@ Import only the package you need:
 
 ```go
 import (
+	"github.com/idfactory/idtools/idconfig"
 	"github.com/idfactory/idtools/idlog"
 	"github.com/idfactory/idtools/idtoken"
 )
 ```
 
 See the package documentation linked above for API details and usage.
+The [`idconfig` documentation](./docs/idconfig.md#optional-env-file) also shows
+how an application can opt into `.env` support without adding that dependency
+to `idtools` itself.
 
 ## Repository layout
 
 ```text
+idconfig/    Environment configuration package and its tests
 idlog/       Structured logging package and its tests
 idtoken/     UUID and token package and its tests
 examples/    Runnable example programs
@@ -45,13 +52,17 @@ docs/        Package documentation
 Clone the repository and run each example from the repository root:
 
 ```sh
+APP_ENV=development go run ./examples/idconfig/
 go run ./examples/idtoken/
 go run ./examples/idlog/
 ```
 
-The source is in [`examples/idtoken`](./examples/idtoken/main.go) and
+The source is in [`examples/idconfig`](./examples/idconfig/main.go),
+[`examples/idtoken`](./examples/idtoken/main.go), and
 [`examples/idlog`](./examples/idlog/main.go). You can copy the relevant calls
-into your own program and adapt their arguments and error handling.
+into your own program and adapt their arguments and error handling. The
+`idconfig` example requires `APP_ENV`, uses defaults for the other fields, and
+accepts overrides through `APP_NAME`, `DEBUG`, `PORT`, and `TIMEOUT`.
 
 The `idlog` example intentionally ends with `idlog.Fail`. It prints a `FATAL`
 log entry and exits with status 1; that non-zero exit is expected for this
@@ -79,10 +90,10 @@ Run all tests and `go vet ./...` before opening a pull request.
 The repository includes optional project configuration for
 [Zed](https://zed.dev/) in [`.zed/`](./.zed/):
 
-- [`.zed/tasks.json`](./.zed/tasks.json) provides tasks for both examples, a
+- [`.zed/tasks.json`](./.zed/tasks.json) provides tasks for all examples, a
   combined test-and-coverage run, and `go vet`.
 - [`.zed/debug.json`](./.zed/debug.json) provides Delve launch configurations
-  for both examples.
+  for all examples.
 - [`.zed/settings.json`](./.zed/settings.json) contains project-local editor
   settings.
 
