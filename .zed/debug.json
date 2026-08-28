@@ -1,5 +1,16 @@
 [
   {
+    "label": "Debug example - idconfig",
+    "adapter": "Delve",
+    "request": "launch",
+    "mode": "debug",
+    "program": "$ZED_WORKTREE_ROOT/examples/idconfig",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "env": {
+      "APP_ENV": "development"
+    }
+  },
+  {
     "label": "Debug example - idlog",
     "adapter": "Delve",
     "request": "launch",

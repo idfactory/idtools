@@ -1,5 +1,15 @@
 [
   {
+    "label": "Run Example - idconfig",
+    "command": "APP_ENV=development go run ./examples/idconfig/",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never",
+    "shell": "system",
+    "show_summary": true
+  },
+  {
     "label": "Run Example - idlog",
     "command": "go run ./examples/idlog/",
     "use_new_terminal": false,
